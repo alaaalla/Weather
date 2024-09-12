@@ -1,0 +1,93 @@
+* {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* N A V B A R */
+nav h2 {
+    font-size: medium;
+}
+
+small {
+    font-weight: 100;
+    position: absolute;
+    top: 55%;
+    font-size: small;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav button {
+    border: solid 3px white;
+    border-radius: 25px;
+    background-color: transparent;
+    padding: 3px;
+}
+
+nav button:hover {
+    border: solid 3px #009ad8;
+}
+
+/* M A I N - C O N T E N T */
+main {
+    padding: 20px;
+    background-image: url("../imgs/mountain1.png");
+    height: 100%;
+    margin: auto;
+    background-size: cover;
+    background-position: center center;
+}
+
+input {
+    border: transparent;
+    border-radius: 25px;
+}
+
+#submit {
+    border: transparent;
+    background-color: black;
+    color: white;
+}
+
+.item {
+    height: 400px;
+    background-image: linear-gradient(to top, rgp(0, 0, 0, 0.15),
+            rgp(225, 225, 255, 0.15));
+    backdrop-filter: blur(120px);
+    border: solid 2px white;
+}
+
+.item .header {
+    border-bottom: solid 2px white;
+    background-color: rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    margin-bottom: 50px;
+}
+
+.item .custom {
+    color: blue;
+    padding: 20px 0;
+}
+
+/* F O O T E R */
+footer a {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #1e202b;
+    color: #009ad8;
+}
+
+footer a i {
+    position: absolute;
+    top: 32%;
+    left: 32%;
+}
