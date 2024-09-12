@@ -68,7 +68,7 @@ function displayData(data) {
        </div>`
     document.querySelector(".tomorrow").innerHTML = tomorrow;
     // T W O     D A Y S     L A T E R
-    date.setDate(date.getDate() + 2);
+    date.setDate(date.getDate() + 1);
     const anotherDay = date.getDay()
     let twoDaysLater = '';
     twoDaysLater += `<div class="header">
