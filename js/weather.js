@@ -17,7 +17,7 @@ search.addEventListener("input", function () {
     getData(search.value);
 })
 async function getData(input) {
-    let link = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=d9a4788132eb4d988e442438241109&q=${input}&days=3`);
+    let link = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=d9a4788132eb4d988e442438241109&q=${input}&days=3`);
     let result = await link.json();
     displayData(result);
 }
