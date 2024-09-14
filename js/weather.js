@@ -17,9 +17,8 @@ search.addEventListener("input", function () {
     getData(search.value);
 })
 async function getData(input) {
-    let link = await fetch(`https://api.weatherapi.com/v1/current.json?key=d9a4788132eb4d988e442438241109&q=${input}`);
+    let link = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=d9a4788132eb4d988e442438241109&q=${input}&days=3`);
     let result = await link.json();
-    console.log(result);
     displayData(result);
 }
 function displayData(data) {
@@ -43,9 +42,9 @@ function displayData(data) {
     
     </div>
     <div class="custom"><b>${data.current.condition.text}</b></div>
-    <span><img src="https://routeweather.netlify.app/images/icon-umberella@2x.png" alt="" width="21" height="21">20%</span>
-                                <span><img src="https://routeweather.netlify.app/images/icon-wind@2x.png" alt="" width="23" height="21">18km/h</span>
-                                <span><img src="https://routeweather.netlify.app/images/icon-compass@2x.png" alt="" width="21" height="21">East</span>
+    <span><img src="https://routeweather.netlify.app/images/icon-umberella@2x.png" alt="" width="21" height="21">${data.current.humidity}%</span>
+                                <span><img src="https://routeweather.netlify.app/images/icon-wind@2x.png" alt="" width="23" height="21">${data.current.wind_kph}km/h</span>
+                                <span><img src="https://routeweather.netlify.app/images/icon-compass@2x.png" alt="" width="21" height="21">${data.current.wind_dir}</span>
     </div>`
 
     document.querySelector(".today").innerHTML = content;
@@ -58,13 +57,13 @@ function displayData(data) {
            </div>
        <div class="content text-center">
            <div class="forecast-icon">
-               <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="70">
+               <img src="${data.forecast.forecastday[1].day.condition.icon}" alt="" width="70">
            </div>
            <br>
-           <h5 class="degree">37.5<sup>o</sup>C</h5>
-           <h6>25.3<sup>o</sup></h6>
+           <h5 class="degree">${data.forecast.forecastday[1].day.maxtemp_c}<sup>o</sup>C</h5>
+           <h6>${data.forecast.forecastday[1].day.mintemp_c}<sup>o</sup></h6>
            <br>
-           <p class="custom"><b>Sunny</b></p>
+           <p class="custom"><b>${data.forecast.forecastday[1].day.condition.text}</b></p>
        </div>`
     document.querySelector(".tomorrow").innerHTML = tomorrow;
     // T W O     D A Y S     L A T E R
@@ -76,13 +75,13 @@ function displayData(data) {
 </div> 
 <div class="content text-center">
    <div class="forecast-icon">
-       <img src="${data.current.condition.icon}" alt="" width="70">
+       <img src="${data.forecast.forecastday[2].day.condition.icon}" alt="" width="70">
    </div>
    <br>
-   <h5 class="degree">36.1<sup>o</sup>C</h5>
-   <h6>23.7<sup>o</sup></h6>
+   <h5 class="degree">${data.forecast.forecastday[2].day.maxtemp_c}<sup>o</sup>C</h5>
+   <h6>${data.forecast.forecastday[2].day.mintemp_c}<sup>o</sup></h6>
    <br>
-   <p class="custom"><b>${data.current.condition.text}</b></p>
+   <p class="custom"><b>${data.forecast.forecastday[2].day.condition.text}</b></p>
 </div>`
     document.querySelector(".twoDaysLater").innerHTML = twoDaysLater;
 }
